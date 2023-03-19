@@ -11,17 +11,17 @@ defmodule Yolo do
     {params, model}
   end
 
-  def load_image(path) do
-    v_image = Image.open!(path, access: :random)
-
-    {:ok, image} = Image.to_nx(v_image, shape: :hwc)
-    image =
-      image
-      |> Nx.transpose(axes: [:channels, :height, :width])
-      |> Nx.new_axis(0, :batch)
-      |> Nx.divide(255)
-
-    image
-  end
+  # def load_image(path) do
+  #   v_image = Image.open!(path, access: :random)
+  #
+  #   {:ok, image} = Image.to_nx(v_image, shape: :hwc)
+  #   image =
+  #     image
+  #     |> Nx.transpose(axes: [:channels, :height, :width])
+  #     |> Nx.new_axis(0, :batch)
+  #     |> Nx.divide(255)
+  #
+  #   image
+  # end
 
 end
